@@ -1,0 +1,211 @@
+/* Animated AI Home Logo */
+.animated-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  /* Prevent parent flex containers from stretching the logo */
+  flex: 0 0 40px;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.logo-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* House silhouette with blue gradient */
+.house-silhouette {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  clip-path: polygon(50% 0%, 100% 30%, 100% 100%, 0% 100%, 0% 30%);
+  position: relative;
+  animation: houseGlow 2s ease-in-out infinite alternate;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* AI Chip inside the house */
+.ai-chip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: chipPulse 1.5s ease-in-out infinite;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+}
+
+/* Chip pins extending from all sides */
+.chip-pins {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.pin {
+  position: absolute;
+  background: #1e40af;
+  animation: pinGlow 2s ease-in-out infinite;
+}
+
+.pin-top {
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 4px;
+  border-radius: 1px;
+}
+
+.pin-right {
+  right: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.pin-bottom {
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 4px;
+  border-radius: 1px;
+}
+
+.pin-left {
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+/* AI text on the chip */
+.ai-text {
+  font-size: 8px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  animation: textShimmer 2s ease-in-out infinite;
+  letter-spacing: 0.5px;
+}
+
+/* Animations */
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-2px) rotate(1deg);
+  }
+}
+
+@keyframes houseGlow {
+  0% {
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+  100% {
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+  }
+}
+
+@keyframes chipPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes pinGlow {
+  0%, 100% {
+    opacity: 0.7;
+    background: #1e40af;
+  }
+  50% {
+    opacity: 1;
+    background: #3b82f6;
+  }
+}
+
+@keyframes textShimmer {
+  0%, 100% {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 8px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Hover effects */
+.animated-logo:hover .logo-container {
+  animation-play-state: paused;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.animated-logo:hover .house-silhouette {
+  animation-play-state: paused;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+}
+
+.animated-logo:hover .ai-chip {
+  animation-play-state: paused;
+  transform: translate(-50%, -50%) scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .animated-logo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .ai-chip {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .ai-text {
+    font-size: 6px;
+  }
+  
+  .pin {
+    width: 1px;
+    height: 2px;
+  }
+  
+  .pin-top, .pin-bottom {
+    width: 1px;
+    height: 3px;
+  }
+  
+  .pin-left, .pin-right {
+    width: 3px;
+    height: 1px;
+  }
+}
