@@ -233,8 +233,8 @@
 
 /* Navigation Logo Styles */
 .nav-logo {
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
@@ -245,14 +245,14 @@
 
 .fallback-animated-logo {
   display: none;
-  /* Constrain animated fallback size to avoid stretching */
-  width: 40px;
-  height: 40px;
-  flex: 0 0 40px;
-  min-width: 40px;
-  min-height: 40px;
-  max-width: 40px;
-  max-height: 40px;
+  /* Constrain animated fallback size to avoid stretching when image hidden */
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  min-width: 28px;
+  min-height: 28px;
+  max-width: 28px;
+  max-height: 28px;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
